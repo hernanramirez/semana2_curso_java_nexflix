@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @since 2017-12-30
  */
 
-public class Principal {
+public class Ejecutable {
 
 	public static void main(String[] args) {
 		/* crear arreglo de peliculas y series */
