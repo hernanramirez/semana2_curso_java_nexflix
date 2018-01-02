@@ -5,11 +5,11 @@ import java.util.ArrayList;
 /**
  * El siguiente programa impementa demo con Herencia, poliformismo y interfaces.
  * 
- * Practica 2 curso de Java
+ * Practica semana 3 curso de Java
  *
  * @author J. Hernan Ramriez R.
  * @version 1.0
- * @since 2017-12-30
+ * @since 2018-01-02
  */
 
 public class Ejecutable {
@@ -52,44 +52,57 @@ public class Ejecutable {
 
 		System.out.println("\n* Lista de las peliculas que se visualizaron");
 		contador = 0;
-		for (Pelicula peliculaObje : peliculas) {
-			if (peliculaObje.esVisto()) {
-				System.out.println(peliculaObje.toString());
-				System.out.println(" ---> " + peliculaObje.tiempoVisto() + "\n");
-			}
+		
+		try {
+			for (Pelicula peliculaObje : peliculas) {
+				if (peliculaObje.esVisto()) {
+					System.out.println(peliculaObje.toString());
+					System.out.println(" ---> " + peliculaObje.tiempoVisto() + "\n");
+				}
 
-			// tomar el ano mas reciente de las peliculas
-			if (peliculaObje.getAnno() > annoPeliculaReciente) { //
-				annoPeliculaReciente = peliculaObje.getAnno();
-				indicePelicula = contador;
-			}
-			contador++;
+				// tomar el ano mas reciente de las peliculas
+				if (peliculaObje.getAnno() > annoPeliculaReciente) { //
+					annoPeliculaReciente = peliculaObje.getAnno();
+					indicePelicula = contador;
+				}
+				contador++;
 
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Se genero error en el for de peliculas");
 		}
+		
+		
 		
 		System.out.println("\n* Pelicula mas reciente");
 		System.out.println(peliculas.get(indicePelicula).toString());
 
 		System.out.println("\n* Lista de las Series que se visualizaron");
 		contador = 0;
-		for (Serie serieObj : series) {
-			if (serieObj.esVisto()) {
-				System.out.println(serieObj.toString());
-				System.out.println(" ---> " + serieObj.tiempoVisto() + "\n");
-			}
-
-			// tomar el ano mas reciente de las peliculas
-			if (serieObj.getNoDeTemporadas() > maxNroTemporada) { //
-				maxNroTemporada = serieObj.getNoDeTemporadas();
-				indiceSerie = contador;
-			}
-			contador++;
-
-		}
 		
+		try {
+			for (Serie serieObj : series) {
+				if (serieObj.esVisto()) {
+					System.out.println(serieObj.toString());
+					System.out.println(" ---> " + serieObj.tiempoVisto() + "\n");
+				}
+
+				// tomar el ano mas reciente de las peliculas
+				if (serieObj.getNoDeTemporadas() > maxNroTemporada) { //
+					maxNroTemporada = serieObj.getNoDeTemporadas();
+					indiceSerie = contador;
+				}
+				contador++;
+
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("se genero error en el for de series");
+		}
+			
 		System.out.println("\n* serie con mas nro de episodios");
 		System.out.println(series.get(indiceSerie).toString());
-
 
 	}
 
